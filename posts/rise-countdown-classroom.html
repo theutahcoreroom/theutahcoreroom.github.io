@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I use the 30-day RISE countdown in my classroom &mdash; with real implementation tips. | The Utah Core Room</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, 'Segoe UI', system-ui, sans-serif; background: #fff; color: #2C2C2A; }
+a { text-decoration: none; color: inherit; }
+.serif { font-family: Georgia, 'Times New Roman', serif; }
+nav { border-bottom: 1px solid #F5EDE3; padding: 0 20px; background: #fff; position: sticky; top: 0; z-index: 10; }
+.nav-inner { max-width: 780px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav-logo { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.nav-icon { width: 32px; height: 32px; border-radius: 8px; background: #2D6A4F; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; font-weight: 700; }
+.nav-name { font-size: 16px; font-weight: 600; color: #2C2C2A; letter-spacing: -0.3px; }
+.nav-links { display: flex; gap: 20px; font-size: 14px; }
+.nav-links a { color: #6B6B68; padding-bottom: 4px; border-bottom: 2px solid transparent; }
+.nav-links a:hover, .nav-links a.active { color: #2D6A4F; border-bottom-color: #2D6A4F; font-weight: 600; }
+.content { max-width: 680px; margin: 0 auto; padding: 40px 20px 60px; }
+.post-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+.post-cat { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+.post-date, .post-read { font-size: 13px; color: #B4B2A9; }
+article h1 { font-size: 28px; font-weight: 700; color: #2C2C2A; line-height: 1.3; margin-bottom: 10px; letter-spacing: -0.5px; }
+article .subtitle { font-size: 17px; color: #6B6B68; line-height: 1.5; font-style: italic; margin-bottom: 8px; }
+.author { display: flex; align-items: center; gap: 10px; margin: 20px 0 32px; padding-bottom: 24px; border-bottom: 1px solid #F5EDE3; }
+.author-avatar { width: 36px; height: 36px; border-radius: 50%; background: #95D5B2; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: #1B3D2F; }
+.author-name { font-size: 14px; font-weight: 600; color: #2C2C2A; }
+.author-role { font-size: 12px; color: #B4B2A9; }
+article .body p { font-size: 16px; color: #2C2C2A; line-height: 1.8; margin-bottom: 20px; }
+article .body h2 { font-size: 20px; font-weight: 600; color: #2C2C2A; margin: 36px 0 14px; letter-spacing: -0.3px; }
+.back-link { font-size: 13px; color: #2D6A4F; font-weight: 500; margin-bottom: 24px; display: inline-block; }
+.back-link:hover { text-decoration: underline; }
+.freebie-box { border: 2px solid; border-radius: 12px; padding: 22px 24px; margin: 36px 0 12px; }
+.freebie-badge { font-size: 11px; font-weight: 700; color: white; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px; display: inline-block; margin-bottom: 10px; }
+.freebie-box h3 { font-size: 16px; font-weight: 600; color: #2C2C2A; margin-bottom: 8px; line-height: 1.4; }
+.freebie-box .desc { font-size: 14px; color: #6B6B68; line-height: 1.7; margin-bottom: 14px; }
+.freebie-btn { display: inline-block; color: white; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; }
+.cta-box { background: #FDF8F0; border: 1px solid #F5EDE3; border-radius: 12px; padding: 20px 24px; margin: 12px 0 0; }
+.cta-box p { font-size: 15px; color: #2C2C2A; line-height: 1.7; margin-bottom: 12px; }
+.cta-box .link { font-size: 14px; font-weight: 600; color: #2D6A4F; display: inline-block; }
+.cta-box .link:hover { text-decoration: underline; }
+footer { border-top: 1px solid #F5EDE3; padding: 28px 20px; background: #FDF8F0; }
+.footer-inner { max-width: 680px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-name { font-size: 14px; font-weight: 600; color: #2C2C2A; }
+.footer-sub { font-size: 12px; color: #B4B2A9; margin-top: 2px; }
+.footer-links { font-size: 12px; color: #B4B2A9; text-align: right; }
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+<a href="../index.html" class="nav-logo"><div class="nav-icon">UC</div><span class="nav-name">The Utah Core Room</span></a>
+<div class="nav-links">
+<a href="../index.html">Blog</a>
+<a href="../about.html">About</a>
+<a href="../resources.html">Resources</a>
+<a href="https://www.teacherspayteachers.com/store/the-utah-core-room" target="_blank" style="color:#2D6A4F;font-weight:600;">My TpT Store &nearr;</a>
+</div></div></nav>
+<div class="content"><article>
+<a href="../index.html" class="back-link">&larr; Back to all posts</a>
+<div class="post-meta">
+<span class="post-cat" style="color:#C65D07;background:#C65D0712">Product Spotlight</span>
+<span class="post-date">April 2026</span>
+<span class="post-read">7 min read</span>
+</div>
+<h1>How I use the 30-day RISE countdown in my classroom &mdash; with real implementation tips.</h1>
+<p class="subtitle">A honest walkthrough of what daily RISE prep actually looks like, including the adjustments I've made after running it for multiple testing cycles.</p>
+<div class="author">
+<div class="author-avatar">UC</div>
+<div><div class="author-name">The Utah Core Room</div>
+<div class="author-role">Utah educator &amp; resource creator</div></div>
+</div>
+<div class="body serif">
+
+<p>There are a lot of test prep resources out there. Stacks of worksheets, question banks organized by standard, review packets that could double as doorstops. I've used many of them over the years, and here's what I kept running into: I had the materials, but I didn't have a plan.</p>
+
+<p>Every spring I'd look at the calendar, count the days until RISE testing, and feel that familiar wave of "there's not enough time to cover everything." So I'd grab a passage here, a worksheet there, maybe squeeze in a review game on Friday — and hope that the patchwork added up to something coherent.</p>
+
+<p>It never quite did. My students could tell. The review felt scattered, and so did their confidence.</p>
+
+<p>That's why I built the 30-Day RISE ELA Countdown. Not because the world needed another stack of practice questions, but because I needed a structure. Something that told me exactly what to teach on Day 22 without me spending Sunday night figuring it out. Something that gave my students a visible path: "We're on Day 18. We've already covered main idea, inference, and vocabulary. Today we tackle text evidence. We're getting closer."</p>
+
+<p>Here's how I actually use it in my classroom — not the polished version, but the real one, with the adjustments I've made after running it for multiple testing cycles.</p>
+
+<h2>The daily structure (10-15 minutes, not a whole class period)</h2>
+
+<p>The countdown is not a replacement for regular instruction. I never stop teaching new content to "do test prep." Instead, the countdown lives in a specific 10-15 minute window each day — usually the first thing after morning announcements or the last 15 minutes before lunch.</p>
+
+<p>Each day follows the same routine: students read a short original passage (narrative or informational, alternating throughout the month), answer 3-5 RISE-format questions, and then we review the answers together. The consistency is the point. Students stop asking "what are we doing today?" because they know. That predictability reduces anxiety more than any pep talk I could give.</p>
+
+<p>On Mondays I introduce the week's focus skill. On Tuesdays through Thursdays we practice with passages that target that skill. On Fridays I do a mixed review that pulls from the current week AND previous weeks — so skills don't evaporate the moment we move on.</p>
+
+<h2>Why the question format matters more than you'd think</h2>
+
+<p>Here's something I didn't fully appreciate until I started analyzing my students' test results: many of them knew the content but got tripped up by the format. A student who could verbally explain the main idea of a passage would freeze when confronted with a Part A/Part B question asking them to first identify the main idea and then select the evidence that supports it.</p>
+
+<p>Every question in the countdown mirrors the actual RISE format: multiple choice, multiple select ("select ALL that apply"), Part A/Part B evidence-based questions, table match, and graphic response. By Day 10, my students stopped panicking at "select all that apply." By Day 20, they were handling Part A/Part B questions with actual strategy instead of guessing.</p>
+
+<p>I tell my students: "The test isn't trying to trick you. It's asking the same skills we've practiced all year — just in a specific format. And we're going to practice that format until it feels boring. Boring means you're ready."</p>
+
+<h2>What I do with the results each day</h2>
+
+<p>After we review answers together (which takes about 5 minutes), I do a quick visual scan. I ask students to hold up fingers: 1 for "got them all right," 2 for "missed one or two," 3 for "struggled today." It takes 10 seconds and gives me an instant read on the room.</p>
+
+<p>If most of the class shows 1s, we move on. If I see a cluster of 3s, I know tomorrow's warm-up needs to revisit that skill before we advance. I keep a simple tracking sheet — nothing fancy, just a grid with student names and skills — where I mark which areas individual students are struggling with. This lets me pull small groups during independent work time for targeted reteaching.</p>
+
+<p>This is where the countdown pays for itself: because each day targets a specific skill, I can pinpoint exactly where the breakdown is. "It's not reading comprehension generally — it's inference with informational text specifically." That precision saves me from the trap of reviewing everything and hoping something sticks.</p>
+
+<h2>Adjustments I've made along the way</h2>
+
+<p>The first year I used the countdown, I tried to do every single day in order, no exceptions. That was a mistake. Here's what I do differently now.</p>
+
+<p>If a snow day or assembly eats a day, I don't try to "double up" the next day. I just skip to the next day's content and keep moving. Students can handle a missed day. They can't handle a stressed teacher trying to cram two days into one.</p>
+
+<p>For students who are significantly below grade level, I pair them with a partner during the passage reading. One reads aloud quietly while the other follows along. Then they answer the questions independently. This way, reading fluency doesn't become a barrier to practicing comprehension skills.</p>
+
+<p>For students who finish early, I have them write a brief justification for their answer to the hardest question. "Why did you choose C for Part B?" This pushes their thinking without creating extra grading for me — I just scan them while circulating.</p>
+
+<h2>The 10-day version: for teachers who are starting late</h2>
+
+<p>I know some of you are reading this thinking: "30 days? I have 12 days until the test." I hear you. That's exactly why I also created a condensed 10-day version that covers the highest-impact skills in a tighter window. It's not as comprehensive, but it hits the skills that show up most frequently on RISE: main idea, inference, text evidence, vocabulary in context, and author's purpose.</p>
+
+<p>No judgment if you're starting late. Curriculum runs long, assemblies eat into instructional time, and life happens. Ten focused days of strategic review is significantly better than ten days of random worksheets pulled from different sources at midnight.</p>
+
+<h2>What students have told me</h2>
+
+<p>The comment I hear most often from students after using the countdown is not about the content. It's about confidence. "I already know what Part A/Part B looks like, so I wasn't nervous." "I saw 'select all that apply' and I knew what to do." One student told me, "The test was just like what we've been doing every morning. It wasn't even that hard."</p>
+
+<p>That last one stopped me in my tracks. "It wasn't even that hard." Not because the test was easy — it wasn't. But because the format was familiar, the pacing was practiced, and the anxiety was gone. That's what structured preparation does. It doesn't make the test easier. It makes the student readier.</p>
+
+<h2>The honest truth about test prep</h2>
+
+<p>I don't love that standardized testing takes up so much space in our profession. I don't love that a single assessment can feel like it defines a year of work. But I do love watching a student walk into testing day calm and prepared instead of anxious and uncertain. If I can give them that — if 15 minutes a day for 30 days means they sit down and think "I've got this" — then the countdown did its job.</p>
+
+<p>And selfishly? It did my job too. Because for the first time, I wasn't scrambling in March wondering what to review. I had a plan. I followed it. And on testing day, I walked into that room as calm as my students.</p>
+
+
+<div class="freebie-box" style="border-color:#2D6A4F;background:#2D6A4F08">
+<span class="freebie-badge" style="background:#2D6A4F">FREE RESOURCE</span>
+<h3>Free download: Test prep countdown planner &amp; calendar</h3>
+<p class="desc">Want to plan your own countdown? I made a 2-page printable: page one is a "Top 10 Standards I Want to Focus" checklist where you identify your students' biggest skill gaps, and page two is a blank 8-week countdown calendar where you map those standards across the weeks before testing. Reusable year after year &mdash; just fill in the dates and your focus skills. It's the planning tool behind the structured approach I described in this post.</p>
+<a href="../freebies/countdown-calendar.pdf" class="freebie-btn" style="background:#2D6A4F" download>Download the free countdown planner (PDF) &darr;</a>
+</div>
+
+
+<div class="cta-box">
+<p>The 30-Day RISE ELA Countdown and the condensed 10-Day Review are both available in my TpT store. Every passage is original, every question mirrors the actual RISE format, and complete answer keys are included. If you're looking for a structured plan that takes the guesswork out of test prep, they're built for exactly that.</p>
+<a href="https://www.teacherspayteachers.com/store/the-utah-core-room/category-bundle-products-1554778" target="_blank" class="link">Browse RISE prep bundles on TpT &rarr;</a>
+</div>
+
+</div>
+</article></div>
+<footer><div class="footer-inner">
+<div><div class="footer-name">The Utah Core Room</div><div class="footer-sub">Standards-aligned resources for Utah teachers</div></div>
+<div class="footer-links"><div><a href="https://www.teacherspayteachers.com/store/the-utah-core-room" target="_blank" style="color:#2D6A4F;font-weight:600;">Visit my TpT store &nearr;</a></div></div>
+</div></footer>
+</body></html>
